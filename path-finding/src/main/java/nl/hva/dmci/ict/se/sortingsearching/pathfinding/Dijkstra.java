@@ -31,6 +31,8 @@ public class Dijkstra {
     private double[] distTo;          // distTo[v] = distance  of shortest s->v path
     private DirectedEdge[] edgeTo;    // edgeTo[v] = last edge on shortest s->v path
     private IndexMinPQ<Double> pq;    // priority queue of vertices
+    private int tellerLengte;
+    private int tellerKnopen;
 
     /**
      * Computes a shortest paths tree from <tt>s</tt> to every other vertex in
@@ -59,10 +61,15 @@ public class Dijkstra {
             int v = pq.delMin();
             for (DirectedEdge e : G.adj(v))
                 relax(e);
+            tellerKnopen++;
         }
 
         // check optimality conditions
         assert check(G, s);
+    }
+    
+    public int getTellerKnopen(){
+        return tellerKnopen;
     }
 
     // relax edge e and update pq if changed
@@ -107,8 +114,13 @@ public class Dijkstra {
         Stack<DirectedEdge> path = new Stack<DirectedEdge>();
         for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()]) {
             path.push(e);
+            tellerLengte++;
         }
         return path;
+    }
+    
+    public int getTellerLengte(){
+        return tellerLengte;
     }
 
 
