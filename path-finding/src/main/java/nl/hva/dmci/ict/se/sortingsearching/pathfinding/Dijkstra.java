@@ -59,6 +59,7 @@ public class Dijkstra {
             int v = pq.delMin();
             for (DirectedEdge e : G.adj(v))
                 relax(e);
+            
         }
 
         // check optimality conditions
