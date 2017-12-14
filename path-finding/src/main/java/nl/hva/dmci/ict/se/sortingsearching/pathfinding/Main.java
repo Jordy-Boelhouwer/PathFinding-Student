@@ -5,7 +5,7 @@ import nl.hva.dmci.ict.se.sortingsearching.weigthedgraph.EdgeWeightedDigraph;
 
 /**
  * TODO make sure your code is compliant with the HBO-ICT coding conventions!
- * @author ???
+ * @author jj boelhouwer
  */
 public class Main {
 
@@ -21,9 +21,9 @@ public class Main {
     	// existing folder and ands with a '/'!
     	// Example: TileWorldUtil.outputDir = "/Users/nico/output/";
         
-        EdgeWeightedDigraph ewd = new EdgeWeightedDigraph("i5");
+        EdgeWeightedDigraph ewd = new EdgeWeightedDigraph("i8");
         Dijkstra dijk = new Dijkstra(ewd, ewd.getStart());
-        ewd.show("i2", "test");
+        ewd.show("i20", "test");
         
         if(dijk.hasPathTo(ewd.getEnd())){
             Iterable<DirectedEdge> iterator = dijk.pathTo(ewd.getEnd());
