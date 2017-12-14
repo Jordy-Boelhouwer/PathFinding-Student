@@ -21,12 +21,13 @@ public class Main {
         // Before you save any images make sure the value of TileWorldUtil.outputDir points to an
         // existing folder and ands with a '/'!
         // Example: TileWorldUtil.outputDir = "/Users/nico/output/";
-        for (int i = 1; i < 22; i++) {
+        for (int i = 1; i < 25; i++) {
             String img = "i" + Integer.toString(i);
             System.out.println("=== WERELD: " + img + " ===");
 
             EdgeWeightedDigraph ewd = new EdgeWeightedDigraph(img);
             Dijkstra dijk = new Dijkstra(ewd, ewd.getStart());
+            ewd.show("i"+i, "test");
 
             if (dijk.hasPathTo(ewd.getEnd())) {
                 Iterable<DirectedEdge> iter = dijk.pathTo(ewd.getEnd());
@@ -56,7 +57,5 @@ public class Main {
 
             dijk.distTo(ewd.getEnd());
         }
-
     }
-
 }
